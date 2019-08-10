@@ -1,8 +1,10 @@
 import * as functions from 'firebase-functions';
+import app from "./app";
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
+// const PORT = 3000;
+
+// app.listen(PORT, () => {
+//     console.log(`Server start on port ${PORT}`);
 // });
+
+export const App = functions.https.onRequest(app);

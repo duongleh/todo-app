@@ -10,14 +10,36 @@
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "8"
+    "node": "10"
   },
   "main": "lib/index.js",
   "dependencies": {
-    "firebase-admin": "^8.0.0",
-    "firebase-functions": "^3.1.0"
+    "@hapi/joi": "^15.1.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^8.3.0",
+    "firebase-functions": "^3.2.0",
+    "firebase-tools": "^7.2.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.5",
+    "morgan": "^1.9.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.5",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^4.17.0",
+    "@types/hapi__joi": "^15.0.3",
+    "@types/jsonwebtoken": "^8.3.2",
+    "@types/morgan": "^1.7.36",
+    "@types/mongoose": "^5.5.11",
+    "@types/request": "^2.48.2",
+    "@types/request-promise": "^4.1.44",
+    "nodemon": "^1.19.1",
     "tslint": "^5.12.0",
     "typescript": "^3.2.2"
   },
