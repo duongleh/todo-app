@@ -1,5 +1,5 @@
 <mat-card class="todo-card">
-  <h2 class="todo-title">To-do List</h2>
+  <h2 class="todo-title">Todo List</h2>
   <form (ngSubmit)="onAddThings(formDirective)" [formGroup]="formTodo" #formDirective="ngForm">
     <mat-form-field class="todo-form">
       <input matInput type="text" placeholder="What needs to be done?" formControlName="title" required />
@@ -18,8 +18,8 @@
   </mat-form-field>
 </mat-card>
 
-<div class="todo-body" *ngFor="let key of objectKeys(Things)">
-  <app-todo-things [id]="key" [title]="Things[key].title" [values]="Things[key].values" [selected]="selected"
+<div class="todo-body" *ngFor="let things of List">
+  <app-todo-things [id]="things.id" [title]="things.title" [values]="things.values" [selected]="selected"
     (editThings)="onEditThings($event)" (editThing)="onEditThing($event)" (deleteThings)="onDeleteThings($event)"
     (deleteThing)="onDeleteThing($event)" (addThing)="onAddThing($event)">
   </app-todo-things>

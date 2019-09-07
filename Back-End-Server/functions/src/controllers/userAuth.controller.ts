@@ -1,3 +1,5 @@
+import { Request, Response } from 'express';
+import { OK, BAD_REQUEST, CREATED, NOT_FOUND } from 'http-status-codes';
 import * as rp from 'request-promise';
 import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
@@ -8,27 +10,27 @@ import { loginValidation, signupValidation } from '../validations/user.validatio
 
 dotenv.config({ path: '../.env' });
 
-export async function getAll(req: any, res: any) {
+export async function getAll(req: Request, res: Response) {
 	try {
 		const acc = await account.find();
-		res.json(acc);
+		res.status(OK).json(acc);
 	} catch (err) {
-		res.json({ success: false, message: err });
+		res.status(BAD_REQUEST).json({ success: false, message: err });
 	}
 }
 
-export async function login(req: any, res: any) {
+export async function login(req: Request, res: Response) {
 	// validation
 	const { error } = loginValidation(req.body);
-	if (error) return res.status(400).json({ success: false, message: error.details[0].message });
+	if (error) return res.status(BAD_REQUEST).json({ success: false, message: error.details[0].message });
 
 	// Check if the user exists
 	const userExist = await account.findOne({ username: req.body.username });
-	if (!userExist) return res.status(400).json({ success: false, message: 'User is not found' });
+	if (!userExist) return res.status(NOT_FOUND).json({ success: false, message: 'User is not found' });
 
 	// Check if the password correct
 	const isValidPassword = await bcrypt.compare(req.body.password, userExist.password);
-	if (!isValidPassword) return res.status(400).json({ success: false, message: 'Password is invalid' });
+	if (!isValidPassword) return res.status(BAD_REQUEST).json({ success: false, message: 'Password is invalid' });
 
 	// Check if recaptcha token is valid
 	const reCaptchaOptions = {
@@ -46,27 +48,27 @@ export async function login(req: any, res: any) {
 		if (resp.success) {
 			// Create and assign token
 			const token = jwt.sign({ _id: userExist._id }, process.env.JWT_SECRETKEY as string);
-			res.header('auth-token', token).json({
+			return res.header('auth-token', token).status(OK).json({
 				success: true,
 				userId: userExist._id,
 				token: token
 			});
 		} else {
-			res.status(400).json({ success: false, message: 'Fail to verify reCaptcha' });
+			return res.status(BAD_REQUEST).json({ success: false, message: 'Fail to verify reCaptcha' });
 		}
 	} catch (err) {
-		res.status(400).json({ success: false, message: err });
+		return res.status(BAD_REQUEST).json({ success: false, message: err });
 	}
 }
 
-export async function signup(req: any, res: any) {
+export async function signup(req: Request, res: Response) {
 	// validation
 	const { error } = signupValidation(req.body);
-	if (error) return res.status(400).json({ success: false, message: error.details[0].message });
+	if (error) return res.status(BAD_REQUEST).json({ success: false, message: error.details[0].message });
 
 	// Check if the user exists
 	const userExist = await account.findOne({ username: req.body.username });
-	if (userExist) return res.status(400).json({ success: false, message: 'User is already exists' });
+	if (userExist) return res.status(BAD_REQUEST).json({ success: false, message: 'User is already exists' });
 
 	// Hash password
 	const salt = await bcrypt.genSalt(10);
@@ -80,11 +82,11 @@ export async function signup(req: any, res: any) {
 	});
 	try {
 		const savedPost = await acc.save();
-		res.json({
+		return res.status(CREATED).json({
 			success: true,
 			userId: savedPost._id
 		});
 	} catch (err) {
-		res.status(400).json({ success: false, message: err });
+		return res.status(BAD_REQUEST).json({ success: false, message: err });
 	}
 }

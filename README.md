@@ -13,7 +13,7 @@ This project was made using [Angular](https://github.com/angular/angular) on the
 ## Client-side
 
 ```bash
-$ cd Todo-App-Client
+$ cd Front-End-Server
 $ npm install # Initialize
 $ npm start # Development
 $ npm run build # Build
@@ -23,7 +23,7 @@ $ firebase deploy # Deploy
 ## Server-side
 
 ```bash
-$ cd Todo-App-Server
+$ cd Back-End-Server/functions
 $ npm install # Initialize
 $ npm run node # Development
 $ npm run build # Build

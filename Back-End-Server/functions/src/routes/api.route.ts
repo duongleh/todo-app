@@ -1,9 +1,10 @@
 const router = require('express').Router();
 import verify from '../middlewares/verifyToken.middleware';
+import { get, post, update } from '../controllers/todo.controller';
 
 // Todo-list API
-router.get('/todo-list', verify, (req: any, res: any) => {
-	res.json({ id: 1, success: true });
-});
+router.get('/todo/:id', verify, get);
+router.post('/todo', verify, post);
+router.put('/todo', verify, update);
 
 export default router;

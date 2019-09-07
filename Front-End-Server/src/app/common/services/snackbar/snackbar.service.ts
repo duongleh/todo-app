@@ -18,7 +18,7 @@ export class SnackbarService {
   action = true;
   addExtraClass = true;
 
-  creatSnackbar(message: string, actionButtonLabel: string, extraClass: string, action?: string) {
+  createSnackbar(message: string, actionButtonLabel: string, extraClass: string, action?: string) {
     const config = new MatSnackBarConfig();
     config.verticalPosition = this.verticalPosition;
     config.horizontalPosition = this.horizontalPosition;

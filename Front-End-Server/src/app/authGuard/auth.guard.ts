@@ -15,10 +15,10 @@ export class AuthGuard implements CanActivate {
 
     if (this.authService.isLoggedIn && route.url[0].path === 'user') {
       // this.router.navigateByUrl('todo');
-      this.snackbarService.creatSnackbar('You are already logged in', 'LOG OUT', 'error-snackbar', 'logout');
+      this.snackbarService.createSnackbar('You are already logged in', 'LOG OUT', 'error-snackbar', 'logout');
     } else if (!this.authService.isLoggedIn && route.url[0].path !== 'user') {
       this.router.navigateByUrl('user');
-      this.snackbarService.creatSnackbar('Please log in to continue', 'LOG IN', 'error-snackbar');
+      this.snackbarService.createSnackbar('Please log in to continue', 'LOG IN', 'error-snackbar');
     }
     return this.authService.isLoggedIn;
   }

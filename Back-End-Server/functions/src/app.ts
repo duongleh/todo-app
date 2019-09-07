@@ -6,10 +6,10 @@ import * as mongoose from 'mongoose';
 import * as logger from 'morgan';
 
 import userRoute from './routes/userAuth.route';
-import todoListRoute from './routes/api.route';
+import api from './routes/api.route';
 
 
-class App {
+export default class App {
     public app: any;
     constructor() {
         this.app = express();
@@ -36,8 +36,6 @@ class App {
 
         // Routing
         this.app.use('/userAuth', userRoute);
-        this.app.use('/api', todoListRoute);
+        this.app.use('/api', api);
     }
 }
-
-export default new App().app;

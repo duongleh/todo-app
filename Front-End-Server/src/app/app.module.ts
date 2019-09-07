@@ -35,7 +35,6 @@ import { TodoThingsComponent } from './pages/todo/todo-things/todo-things.compon
 import { ThingDialogComponent } from './pages/todo/todo-things/thing-dialog/thing-dialog.component';
 import { WeatherComponent } from './pages/weather/weather.component';
 import { WeatherDataComponent } from './pages/weather/weather-data/weather-data.component';
-import { NewsComponent } from './pages/news/news.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { LoadingComponent } from './common/modules/loading/loading.component';
 
@@ -48,7 +47,6 @@ import { LoadingComponent } from './common/modules/loading/loading.component';
     ThingDialogComponent,
     WeatherComponent,
     WeatherDataComponent,
-    NewsComponent,
     PageNotFoundComponent,
     LoadingComponent,
   ],

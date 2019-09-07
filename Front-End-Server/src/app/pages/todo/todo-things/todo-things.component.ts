@@ -27,8 +27,8 @@ export class TodoThingsComponent implements OnInit {
     this.openDialog(this.title, this.editThings);
   }
 
-  onEditThing(thing: string, id: number) {
-    this.openDialog(thing, this.editThing, id);
+  onEditThing(content: string, id: number) {
+    this.openDialog(content, this.editThing, id);
   }
 
   onDeleteThings() {

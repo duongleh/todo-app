@@ -5,7 +5,7 @@ import { Injectable, OnInit } from '@angular/core';
 })
 export class AuthService {
 
-  isLoggedIn = false;
+  public isLoggedIn = false;
 
   login() {
     this.isLoggedIn = true;
@@ -18,6 +18,7 @@ export class AuthService {
   checkLogin() {
     if (sessionStorage.getItem('account') !== null) { this.isLoggedIn = true; } else { this.isLoggedIn = false; }
   }
+
   constructor() { }
 
 }

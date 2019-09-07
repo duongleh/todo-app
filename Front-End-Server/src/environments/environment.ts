@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   domain: {
-    user: 'http://localhost:5000/todo-app-server-834d3/us-central1/App/userAuth',
+    user: 'http://localhost:3000/userAuth',
+    todo: 'http://localhost:3000/api/todo',
     weather: 'https://api.openweathermap.org/data/2.5/find?units=metric&appid=85e3470a63c593af3034af2e8513e04f&q='
   }
 };
