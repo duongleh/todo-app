@@ -8,12 +8,12 @@ export interface Thing {
 export interface Things {
 	id: number;
 	title: string;
-	values: Thing[];
+	values: Array<Thing>;
 }
 
 export interface IUser extends Document {
 	userId: string;
-	data: Things[];
+	data: Array<Things>;
 }
 
 const TodoSchema = new Schema({

@@ -7,23 +7,25 @@ import { environment } from 'src/environments/environment';
 })
 export class TodoService {
   public url = environment.domain.todo;
+  public token = JSON.parse(sessionStorage.getItem('account')).token;
+  public userID = JSON.parse(sessionStorage.getItem('account')).userID;
 
   public httpOptions = {
     headers: new HttpHeaders({
-      'auth-token': JSON.parse(sessionStorage.getItem('account')).token
+      'auth-token': this.token
     })
   };
 
   getTodo() {
-    return this.http.get(`${this.url}/${JSON.parse(sessionStorage.getItem('account')).userID}`, this.httpOptions);
+    return this.http.get(`${this.url}/${this.userID}`, this.httpOptions);
   }
 
   postTodo(data: any) {
-    return this.http.post(this.url, data, this.httpOptions);
+    return this.http.post(this.url, { userId: this.userID, data }, this.httpOptions);
   }
 
   updateTodo(data: any) {
-    return this.http.put(this.url, data, this.httpOptions);
+    return this.http.put(this.url, { userId: this.userID, data }, this.httpOptions);
   }
 
   constructor(private http: HttpClient) { }

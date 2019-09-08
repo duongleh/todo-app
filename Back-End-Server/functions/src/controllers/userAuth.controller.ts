@@ -4,10 +4,8 @@ import * as rp from 'request-promise';
 import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
 import * as dotenv from "dotenv";
-
 import account from '../models/account.model';
 import { loginValidation, signupValidation } from '../validations/user.validation';
-
 dotenv.config({ path: '../.env' });
 
 export async function getAll(req: Request, res: Response) {

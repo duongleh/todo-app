@@ -5,7 +5,9 @@
       <input matInput type="text" placeholder="What needs to be done?" formControlName="title" required />
       <mat-error *ngIf="formTodo.controls['title'].invalid">{{getErrorMessage('title')}}</mat-error>
     </mat-form-field>
-    <button id="todo-Btn" mat-flat-button color="primary" [disabled]="formTodo.invalid">Submit</button><br>
+    <button mat-flat-button color="primary" id="todoBtn" type="submit" [disabled]="formTodo.invalid">Add</button>
+    <button mat-flat-button color="warn" (click)="save()" id="saveBtn" type="button">Save
+      <mat-spinner [diameter]=" 20" *ngIf="isLoading"> </mat-spinner> </button><br>
   </form>
 
   <mat-form-field class="todo-form" id="displayList">

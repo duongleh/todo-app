@@ -9,9 +9,11 @@ import { SnackbarService } from '../../common/services/snackbar/snackbar.service
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
-  public selected = 'option1';
   public formTodo: FormGroup;
   public List = [];
+  public selected = 'option1';
+  public pageType: string;
+  public isLoading = false;
 
   constructor(private fb: FormBuilder, private todoService: TodoService, private snackbarService: SnackbarService) { }
 
@@ -21,9 +23,17 @@ export class TodoComponent implements OnInit {
     });
 
     this.todoService.getTodo().subscribe((res: any) => {
-      if (res.success) this.List = res.data;
+      if (res.success) {
+        this.List = res.data;
+        this.pageType = 'EDIT';
+      } else this.pageType = 'NEW';
+
+      console.log(this.pageType);
     }, error => {
+      this.pageType = 'ERROR';
       this.snackbarService.createSnackbar('Could not load data from server', 'RETRY', 'error-snackbar');
+      console.log(this.pageType);
+
     });
   }
 
@@ -70,6 +80,38 @@ export class TodoComponent implements OnInit {
 
   getErrorMessage(title: string): string {
     return this.formTodo.controls[title].errors.required ? 'You must enter a value' : '';
+  }
+
+  save() {
+    if (this.List.length === 0) {
+      this.snackbarService.createSnackbar('Todo List is empty', 'RETRY', 'error-snackbar');
+      return;
+    }
+
+    this.isLoading = true;
+    if (this.pageType === 'NEW') {
+      this.todoService.postTodo(this.List).subscribe((res: any) => {
+        console.log(res);
+        if (res.success) {
+          this.snackbarService.createSnackbar('Save Success', 'CONGRATS', 'success-snackbar');
+        }
+        this.isLoading = false;
+      }, error => {
+        if (error.message) this.snackbarService.createSnackbar(error.message, 'RETRY', 'error-snackbar');
+        this.isLoading = false;
+      });
+    } else if (this.pageType === 'EDIT') {
+      // this.todoService.updateTodo(this.List).subscribe((res: any) => {
+      //   console.log(res);
+      //   if (res.success) {
+      //     this.snackbarService.createSnackbar('Update Success', 'CONGRATS', 'success-snackbar');
+      //   }
+      //   this.isLoading = false;
+      // }, error => {
+      //   if (error.message) this.snackbarService.createSnackbar(error.message, 'RETRY', 'error-snackbar');
+      //   this.isLoading = false;
+      // });
+    }
   }
 
 }
