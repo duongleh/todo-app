@@ -1,11 +1,11 @@
 import { Schema, model, Document } from 'mongoose';
 
-export interface Thing {
+export interface Thing extends Document {
 	id: number;
 	content: string;
 	isDone: boolean;
 }
-export interface Things {
+export interface Things extends Document {
 	id: number;
 	title: string;
 	values: Array<Thing>;

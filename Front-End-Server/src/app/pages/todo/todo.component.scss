@@ -1,5 +1,5 @@
 .todo-title {
-  margin: 0
+  margin: 0;
 }
 
 .todo-card {
@@ -19,10 +19,11 @@
   margin: 0.5rem 1rem 0 0;
 }
 
-#displayList {
-  margin-top: 20px;
+#saveBtn {
+  max-width: 250px;
+  margin: 0rem 1rem 0 0;
 }
 
-#saveBtn {
-  margin: 0.85rem;
+#displayList {
+  margin-top: 20px;
 }

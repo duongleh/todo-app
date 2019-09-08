@@ -7,7 +7,7 @@
     </mat-form-field>
     <button mat-flat-button color="primary" id="todoBtn" type="submit" [disabled]="formTodo.invalid">Add</button>
     <button mat-flat-button color="warn" (click)="save()" id="saveBtn" type="button">Save
-      <mat-spinner [diameter]=" 20" *ngIf="isLoading"> </mat-spinner> </button><br>
+      <mat-spinner [diameter]="20" *ngIf="isLoading"> </mat-spinner> </button><br>
   </form>
 
   <mat-form-field class="todo-form" id="displayList">

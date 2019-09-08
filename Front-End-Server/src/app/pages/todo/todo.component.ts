@@ -27,13 +27,9 @@ export class TodoComponent implements OnInit {
         this.List = res.data;
         this.pageType = 'EDIT';
       } else this.pageType = 'NEW';
-
-      console.log(this.pageType);
     }, error => {
       this.pageType = 'ERROR';
       this.snackbarService.createSnackbar('Could not load data from server', 'RETRY', 'error-snackbar');
-      console.log(this.pageType);
-
     });
   }
 
@@ -91,26 +87,25 @@ export class TodoComponent implements OnInit {
     this.isLoading = true;
     if (this.pageType === 'NEW') {
       this.todoService.postTodo(this.List).subscribe((res: any) => {
-        console.log(res);
         if (res.success) {
           this.snackbarService.createSnackbar('Save Success', 'CONGRATS', 'success-snackbar');
         }
+        this.pageType = 'EDIT';
         this.isLoading = false;
       }, error => {
         if (error.message) this.snackbarService.createSnackbar(error.message, 'RETRY', 'error-snackbar');
         this.isLoading = false;
       });
     } else if (this.pageType === 'EDIT') {
-      // this.todoService.updateTodo(this.List).subscribe((res: any) => {
-      //   console.log(res);
-      //   if (res.success) {
-      //     this.snackbarService.createSnackbar('Update Success', 'CONGRATS', 'success-snackbar');
-      //   }
-      //   this.isLoading = false;
-      // }, error => {
-      //   if (error.message) this.snackbarService.createSnackbar(error.message, 'RETRY', 'error-snackbar');
-      //   this.isLoading = false;
-      // });
+      this.todoService.updateTodo(this.List).subscribe((res: any) => {
+        if (res.success) {
+          this.snackbarService.createSnackbar('Update Success', 'CONGRATS', 'success-snackbar');
+        }
+        this.isLoading = false;
+      }, error => {
+        if (error.message) this.snackbarService.createSnackbar(error.message, 'RETRY', 'error-snackbar');
+        this.isLoading = false;
+      });
     }
   }
 

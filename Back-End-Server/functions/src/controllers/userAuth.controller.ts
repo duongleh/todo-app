@@ -10,7 +10,7 @@ dotenv.config({ path: '../.env' });
 
 export async function getAll(req: Request, res: Response) {
 	try {
-		const acc = await account.find();
+		const acc = await account.find().select('-_id +username +email +password -__v');
 		res.status(OK).json(acc);
 	} catch (err) {
 		res.status(BAD_REQUEST).json({ success: false, message: err });

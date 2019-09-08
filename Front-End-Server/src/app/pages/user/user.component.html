@@ -83,9 +83,9 @@
           </ngx-recaptcha2>
         </div> -->
 
-        <button mat-flat-button color="primary" id="submitBtn" type="button"
+        <button mat-flat-button color="primary" id="submitBtn" type="submit"
           [disabled]="formSignUp.valid === isLoading">
-          Sign Up<mat-spinner [diameter]=" 20" *ngIf="isLoading"> </mat-spinner> </button>
+          Sign Up<mat-spinner [diameter]="20" *ngIf="isLoading"> </mat-spinner> </button>
 
       </form>
 

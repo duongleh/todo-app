@@ -4,10 +4,8 @@ import * as express from 'express';
 import * as cors from 'cors';
 import * as mongoose from 'mongoose';
 import * as logger from 'morgan';
-
 import userRoute from './routes/userAuth.route';
 import api from './routes/api.route';
-
 
 export default class App {
     public app: any;
@@ -24,8 +22,8 @@ export default class App {
         this.app.use(express.urlencoded({ extended: true }));
 
         // Database
-        const uri = `mongodb://${process.env.MONGO_NAME}:${process.env.MONGO_PASSWORD}@cluster0-shard-00-00-df395.gcp.mongodb.net:27017,cluster0-shard-00-01-df395.gcp.mongodb.net:27017,cluster0-shard-00-02-df395.gcp.mongodb.net:27017/User?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority`;
-        mongoose.connect(uri, { useNewUrlParser: true })
+        const uri = process.env.MONGO_URI as string;
+        mongoose.connect(uri, { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true })
             .then(() => {
                 console.log('Connected to DB successfully!');
             })

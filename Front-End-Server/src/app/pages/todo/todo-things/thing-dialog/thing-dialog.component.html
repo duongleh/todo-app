@@ -7,8 +7,8 @@
     </mat-form-field>
 
     <div>
-      <button class="thing-button" mat-flat-button color="warn" (click)="onNoClick()">Cancel</button>
-      <button class="thing-button" mat-flat-button color="primary" [mat-dialog-close]="data.content"
+      <button class="thing-button" mat-flat-button type="button" color="warn" (click)="onNoClick()">Cancel</button>
+      <button class="thing-button" mat-flat-button type="submit" color="primary" [mat-dialog-close]="data.content"
         [disabled]="!f.valid">Confirm</button>
     </div>
 
