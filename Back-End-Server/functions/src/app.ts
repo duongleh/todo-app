@@ -22,7 +22,7 @@ export default class App {
         this.app.use(express.urlencoded({ extended: true }));
 
         // Database
-        const uri = process.env.MONGO_URI as string;
+        const uri = String(process.env.MONGO_URI || '');
         mongoose.connect(uri, { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true })
             .then(() => {
                 console.log('Connected to DB successfully!');
