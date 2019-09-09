@@ -24,6 +24,11 @@
   margin: 0rem 1rem 0 0;
 }
 
+:host ::ng-deep .mat-progress-spinner {
+  margin-left: 10px;
+  display: inline-block;
+}
+
 #displayList {
   margin-top: 20px;
 }

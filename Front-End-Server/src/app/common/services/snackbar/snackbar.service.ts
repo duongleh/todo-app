@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { UserAuthService } from '../userAuth/user-auth.service';
 import {
   MatSnackBar,
   MatSnackBarConfig,
@@ -11,12 +12,12 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class SnackbarService {
-  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
-  setAutoHide = true;
-  autoHide = 5000;
-  action = true;
-  addExtraClass = true;
+  public horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  public verticalPosition: MatSnackBarVerticalPosition = 'top';
+  public setAutoHide = true;
+  public autoHide = 5000;
+  public action = true;
+  public addExtraClass = true;
 
   createSnackbar(message: string, actionButtonLabel: string, extraClass: string, action?: string) {
     const config = new MatSnackBarConfig();
@@ -28,10 +29,10 @@ export class SnackbarService {
     if (action === 'logout') {
       snackBarRef.onAction().subscribe(() => {
         // logout
-        sessionStorage.removeItem('account');
+        this.userAuthService.logout();
         this.router.navigateByUrl('user');
       });
     }
   }
-  constructor(public snackBar: MatSnackBar, private router: Router) { }
+  constructor(public snackBar: MatSnackBar, private router: Router, private userAuthService: UserAuthService) { }
 }

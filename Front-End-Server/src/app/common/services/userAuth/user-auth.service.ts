@@ -23,6 +23,10 @@ export class UserAuthService {
     return this.http.post(`${this.url}/signup`, data, this.httpOptions);
   }
 
+  logout() {
+    return sessionStorage.removeItem('account');
+  }
+
   constructor(private http: HttpClient) { }
 
 }
