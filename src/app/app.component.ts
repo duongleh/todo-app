@@ -1,25 +1,14 @@
-﻿import { Component, OnInit } from '@angular/core';
-import { Constants } from './shared/constant';
+﻿import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  title = 'myApp';
-  public navLinks: any[];
-  public activeLinkIndex = -1;
-  public isLoading = true;
+  title = 'Todo App';
 
-  constructor() {
-    this.navLinks = Constants.navLinks;
-  }
+  constructor() { }
 
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 1500);
-  }
 }

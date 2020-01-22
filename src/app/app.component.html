@@ -1,8 +1,2 @@
-﻿<app-loading *ngIf="isLoading"></app-loading>
-<nav mat-tab-nav-bar mat-align-tabs="center" *ngIf="!isLoading">
-    <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.path" routerLinkActive #rla="routerLinkActive"
-        [active]="rla.isActive">
-        {{link.label}}
-    </a>
-</nav>
-<router-outlet *ngIf="!isLoading"></router-outlet>
+﻿<app-nav-bar></app-nav-bar>
+<router-outlet></router-outlet>
