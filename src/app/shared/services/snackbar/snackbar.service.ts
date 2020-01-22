@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserAuthService } from '../userAuth/user-auth.service';
+import { UserAuthService } from '../user-auth/user-auth.service';
 import {
   MatSnackBar,
   MatSnackBarConfig,

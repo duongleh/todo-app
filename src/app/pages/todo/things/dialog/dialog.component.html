@@ -1,0 +1,17 @@
+<div class="thing-dialog">
+    <h3>Please Edit</h3>
+    <form class="thing-dialog-form" #f="ngForm">
+        <mat-form-field class="thing-dialog-field">
+            <input matInput type="text" [(ngModel)]="data.content" name="content" required>
+            <mat-error *ngIf="!f.valid">You must enter a value</mat-error>
+        </mat-form-field>
+
+        <div>
+            <button class="thing-button" mat-flat-button type="button" color="warn"
+                (click)="onNoClick()">Cancel</button>
+            <button class="thing-button" mat-flat-button type="submit" color="primary" [mat-dialog-close]="data.content"
+                [disabled]="!f.valid">Confirm</button>
+        </div>
+
+    </form>
+</div>

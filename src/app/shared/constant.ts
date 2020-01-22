@@ -15,6 +15,5 @@ export const Constants = {
         }
     ],
     siteKey: '6LeVkKwUAAAAAMVxE5TOuLMGDmUcSaosdHi7Mdqm', // captcha
-    apiKey: 'AIzaSyB4uj7QKxYsEyushHyGFd-0gOYfOpzntsA', // ggmap - vinmart +
-    // apiKey: 'AIzaSyBEcMt890KQQSgWBHrjlvuDvI74uIBPwYU' // ggmap
+    apiKey: 'AIzaSyBEcMt890KQQSgWBHrjlvuDvI74uIBPwYU' // ggmap
 };

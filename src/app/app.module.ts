@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ServiceInterceptor } from './service.interceptor';
 import { MatTabsModule, MatSnackBarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { LoadingComponent } from "./shared/loading/loading.component";
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 

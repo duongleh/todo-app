@@ -1,0 +1,90 @@
+:host ::ng-deep .mat-accordion .mat-expansion-panel {
+    max-width: 500px;
+    margin: 0 auto 20px;
+}
+
+:host ::ng-deep .mat-expansion-panel-header:not([aria-disabled=true]) {
+    padding: 0 0;
+    font-weight: bold;
+}
+
+:host ::ng-deep .mat-content {
+    align-items: center;
+    justify-content: space-between;
+}
+
+:host ::ng-deep .mat-expansion-panel-header-description,
+.mat-expansion-panel-header-title {
+    margin: 0 0;
+}
+
+:host ::ng-deep .mat-expansion-panel-header-title {
+    flex: 2;
+    justify-content: center;
+}
+
+::ng-depp .mat-expansion-panel-header-description {
+    flex: 1;
+}
+
+.mp-status {
+    flex: 4;
+    text-align: center
+}
+
+.mp-button {
+    display: flex;
+    padding-right: 10px;
+    align-items: center;
+}
+
+:host ::ng-deep .mat-accordion>.mat-expansion-panel-spacing:last-child,
+.mat-accordion>:last-child:not(.mat-expansion-panel) .mat-expansion-panel-spacing {
+    margin-bottom: 20px
+}
+
+.todo-things-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo-things-checkbox {
+    flex: 1;
+}
+
+.todo-things {
+    flex: 7;
+    font-weight: bold;
+    word-break: break-all;
+    white-space: normal;
+}
+
+.todothingsBtn {
+    display: flex;
+    flex: 1;
+}
+
+:host ::ng-deep .mat-flat-button {
+    min-width: 1%;
+    padding: 0 0;
+    margin-left: 10px;
+}
+
+.line-through {
+    text-decoration: line-through;
+    text-decoration-color: rgb(63, 81, 181);
+}
+
+:host ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: white !important;
+}
+
+:host ::ng-deep .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+    background-color: white !important;
+}
+
+:host ::ng-deep .mat-checkbox-checkmark-path {
+    stroke: rgb(63, 81, 181) !important;
+}
