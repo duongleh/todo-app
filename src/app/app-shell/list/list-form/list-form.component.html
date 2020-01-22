@@ -9,11 +9,6 @@
       formControlName="content"
       required
     />
-    <ngb-alert type="danger" *ngIf="content.invalid && content.dirty">
-      <div *ngIf="content.errors.required">
-        Input must be at least 1 character long.
-      </div>
-    </ngb-alert>
   </div>
   <span class="input-group-btn col-1">
     <button type="submit" class="btn btn-primary" [disabled]="listForm.invalid">
