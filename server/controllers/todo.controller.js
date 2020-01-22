@@ -48,7 +48,6 @@ module.exports.update = async (req, res) => {
         data: req.body.data
       }
     );
-
     return res.status(HttpStatus.OK).json({
       success: true
     });

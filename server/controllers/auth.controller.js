@@ -13,7 +13,7 @@ module.exports.get = async (req, res) => {
       .select("-_id +username +email +password -__v");
     res.status(HttpStatus.OK).json(acc);
   } catch (err) {
-    res.status(HttpStatus.BAD_REQUEST).json({ success: false, message: err });
+    res.status(HttpStatus.NOT_FOUND).json({ success: false, message: err });
   }
 };
 
@@ -38,7 +38,7 @@ module.exports.login = async (req, res) => {
   );
   if (!isValidPassword)
     return res
-      .status(HttpStatus.BAD_REQUEST)
+      .status(HttpStatus.UNAUTHORIZED)
       .json({ success: false, message: "Password is invalid" });
 
   // Check if recaptcha token is valid
@@ -95,7 +95,7 @@ module.exports.signup = async (req, res) => {
   const salt = await bcrypt.genSalt(10);
   const hassedPassword = await bcrypt.hash(req.body.password, salt);
 
-  // Creat new User
+  // Create new User
   const acc = new user({
     username: req.body.username,
     email: req.body.email,

@@ -13,7 +13,6 @@ module.exports = (req, res, next) => {
     req.body.user = verified;
     next();
   } catch (err) {
-    console.log("bad");
     res
       .status(HttpStatus.BAD_REQUEST)
       .json({ success: false, message: "Invalid Token" });
