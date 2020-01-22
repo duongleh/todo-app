@@ -51,6 +51,7 @@
     "tslint": "^5.20.1"
   },
   "scripts": {
+    "init": "npm install && npm install --prefix server ",
     "start": "concurrently \"yarn start-frontend || npm run start-frontend\" \"yarn start-backend || npm run start-backend\"",
     "start-frontend": "ng serve --port=3000 --o --proxy-config proxy.config.json",
     "ng": "ng",
