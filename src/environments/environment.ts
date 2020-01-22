@@ -2,25 +2,11 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-/* Features of development mode in Angular include:
- * an additional change detection cycle
- * printing out hints when the HTML sanitizer is stripping content
- * running deep object comparison checks to detect model changes
- */
 export const environment = {
   production: false,
   endpoint: {
-    grid : '/api/grid',
-    list : '/api/list',
-    masterdetail : '/api/masterdetail',
+    user: '/auth',
+    todo: '/api/todo',
+    weather: 'https://api.openweathermap.org/data/2.5/find?units=metric&appid=85e3470a63c593af3034af2e8513e04f&q='
   }
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.

@@ -3,5 +3,10 @@
         "target": "http://localhost:3001",
         "secure": false,
         "loglevel": "debug"
+    },
+    "/auth/*": {
+        "target": "http://localhost:3001",
+        "secure": false,
+        "loglevel": "debug"
     }
 }

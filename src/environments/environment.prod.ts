@@ -1,9 +1,8 @@
-﻿// Detailed information about production mode optimizations can be found at: https://angular.io/guide/deployment#production-optimizations
-export const environment = {
+﻿export const environment = {
   production: true,
   endpoint: {
-    grid : '/api/grid',
-    list : '/api/list',
-    masterdetail : '/api/masterdetail',
+    user: '/auth',
+    todo: '/api/todo',
+    weather: 'https://api.openweathermap.org/data/2.5/find?units=metric&appid=85e3470a63c593af3034af2e8513e04f&q='
   }
 };

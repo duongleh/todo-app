@@ -3,24 +3,25 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { GridModule } from './app-shell/grid/grid.module';
-import { BlankModule } from './app-shell/blank/blank.module';
-import { ListModule } from './app-shell/list/list.module';
-import { MasterDetailModule } from './app-shell/master-detail/master-detail.module';
-import { NavBarComponent } from './app-shell/nav-bar/nav-bar.component';
-import { FooterComponent } from './app-shell/footer/footer.component';
 import { ServiceInterceptor } from './service.interceptor';
+import { MatTabsModule, MatSnackBarModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingComponent } from "./shared/loading/loading.component";
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    LoadingComponent,
+    NotFoundComponent
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    GridModule,
-    BlankModule,
-    ListModule,
-    MasterDetailModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatSnackBarModule
   ],
   providers: [
     {
