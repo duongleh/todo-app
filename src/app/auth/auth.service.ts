@@ -18,6 +18,6 @@ export class AuthService {
   }
 
   checkLogin() {
-    if (sessionStorage.getItem('account') !== null) { this.isLoggedIn = true; } else { this.isLoggedIn = false; }
+    if (sessionStorage.getItem('user') !== null) { this.isLoggedIn = true; } else { this.isLoggedIn = false; }
   }
 }

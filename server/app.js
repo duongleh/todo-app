@@ -3,9 +3,12 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const cors = require("cors");
+const mongoose = require("mongoose");
 
-const indexRouter = require("./routes/index");
-
+const authRouter = require("./routes/auth.route");
+const apiRouter = require("./routes/api.route");
+require("dotenv").config({ path: __dirname + "/.env" });
 const app = express();
 
 app.use(logger("dev"));
@@ -13,8 +16,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, "build")));
+app.use(cors());
 
-app.use("/api", indexRouter);
+mongoose.connect(process.env.MONGODB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+});
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", () => console.log("Connected to MongoDB Atlas successfully!"));
+
+app.use("/auth", authRouter);
+app.use("/api", apiRouter);
 app.get("*", (req, res) => {
   res.sendFile("build/index.html", { root: __dirname });
 });

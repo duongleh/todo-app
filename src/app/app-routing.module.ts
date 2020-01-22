@@ -14,12 +14,12 @@ const routes: Routes = [
   {
     path: 'todo',
     loadChildren: () => import('./pages/todo/todo.module').then(module => module.TodoModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'weather',
     loadChildren: () => import('./pages/weather/weather.module').then(module => module.WeatherModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
 
   },
   { path: '', redirectTo: 'user', pathMatch: 'full' },

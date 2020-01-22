@@ -67,7 +67,7 @@ export class UserComponent implements OnInit {
       if (response.success) {
         this.authService.login();
         this.snackbarService.createSnackbar('Login Success', `Welcome back, ${this.formLogIn.value.username} !`, 'success-snackbar');
-        sessionStorage.setItem('account', JSON.stringify({
+        sessionStorage.setItem('user', JSON.stringify({
           username: this.formLogIn.value.username,
           userID: response.userId,
           token: response.token

@@ -7,8 +7,8 @@ import { environment } from 'src/environments/environment';
 })
 export class TodoService {
   public url = environment.endpoint.todo;
-  public token = JSON.parse(sessionStorage.getItem('account')).token;
-  public userID = JSON.parse(sessionStorage.getItem('account')).userID;
+  public token = JSON.parse(sessionStorage.getItem('user')).token;
+  public userID = JSON.parse(sessionStorage.getItem('user')).userID;
 
   public httpOptions = {
     headers: new HttpHeaders({

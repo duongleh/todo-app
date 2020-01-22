@@ -24,7 +24,7 @@ export class UserAuthService {
   }
 
   logout() {
-    return sessionStorage.removeItem('account');
+    return sessionStorage.removeItem('user');
   }
 
   constructor(private http: HttpClient) { }

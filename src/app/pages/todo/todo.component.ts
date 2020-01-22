@@ -29,7 +29,7 @@ export class TodoComponent implements OnInit {
       } else this.pageType = 'NEW';
     }, error => {
       this.pageType = 'ERROR';
-      this.snackbarService.createSnackbar('Could not load data from server', 'RETRY', 'error-snackbar');
+      this.snackbarService.createSnackbar(error.error.message, 'RETRY', 'error-snackbar');
     });
   }
 

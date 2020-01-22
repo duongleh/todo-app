@@ -14,6 +14,6 @@ export const Constants = {
             index: 2
         }
     ],
-    siteKey: '6LeVkKwUAAAAAMVxE5TOuLMGDmUcSaosdHi7Mdqm', // captcha
+    siteKey: '6Ldx2dEUAAAAAORumucZFICQNX6Rd1tQ4uo_aDUv', // captcha
     apiKey: 'AIzaSyBEcMt890KQQSgWBHrjlvuDvI74uIBPwYU' // ggmap
 };
