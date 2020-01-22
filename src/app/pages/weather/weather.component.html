@@ -1,0 +1,14 @@
+<mat-card class="weather-card">
+    <h2>Weather Information</h2>
+    <form (ngSubmit)="getTemp(formDirective)" [formGroup]="formWeather" #formDirective="ngForm">
+        <mat-form-field>
+            <input matInput placeholder="City name" type="text" name="city" formControlName="city" required>
+            <mat-error *ngIf="formWeather.controls['city'].invalid">{{getErrorMessage('city')}}</mat-error>
+        </mat-form-field><br />
+        <button class="weatherBtn" mat-flat-button color="primary" [disabled]="formWeather.invalid">Get
+            Temperature</button><br>
+    </form>
+
+    <h3>{{notification}}</h3>
+    <mat-spinner [diameter]="60" *ngIf="isLoading" class="loading-indicator"></mat-spinner>
+</mat-card>

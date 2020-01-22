@@ -1,0 +1,31 @@
+﻿@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+body {
+  background-color: #EEEEEE;
+  // overflow: auto;
+}
+
+.success-snackbar {
+  background: #5b9f5a !important;
+  color: white;
+}
+
+.success-snackbar {
+  .mat-simple-snackbar-action {
+    color: #EDE580;
+  }
+}
+
+.error-snackbar {
+  background: #b24747 !important;
+  color: white;
+}
+
+.error-snackbar {
+  .mat-simple-snackbar-action {
+    color: #EDE580
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

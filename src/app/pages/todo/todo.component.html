@@ -1,0 +1,28 @@
+<mat-card class="todo-card">
+    <h2 class="todo-title">Todo List</h2>
+    <form (ngSubmit)="onAddThings(formDirective)" [formGroup]="formTodo" #formDirective="ngForm">
+        <mat-form-field class="todo-form">
+            <input matInput type="text" placeholder="What needs to be done?" formControlName="title" required />
+            <mat-error *ngIf="formTodo.controls['title'].invalid">{{getErrorMessage('title')}}</mat-error>
+        </mat-form-field>
+        <button mat-flat-button color="primary" id="todoBtn" type="submit" [disabled]="formTodo.invalid">Add</button>
+        <button mat-flat-button color="warn" (click)="save()" id="saveBtn" type="button">Save
+            <mat-spinner [diameter]="20" *ngIf="isLoading"> </mat-spinner> </button><br>
+    </form>
+
+    <mat-form-field class="todo-form" id="displayList">
+        <mat-label>Display option</mat-label>
+        <mat-select [(value)]="selected">
+            <mat-option value="option1">View all</mat-option>
+            <mat-option value="option2">Completed</mat-option>
+            <mat-option value="option3">Active</mat-option>
+        </mat-select>
+    </mat-form-field>
+</mat-card>
+
+<div class="todo-body" *ngFor="let things of List">
+    <app-things [id]="things.id" [title]="things.title" [values]="things.values" [selected]="selected"
+        (editThings)="onEditThings($event)" (editThing)="onEditThing($event)" (deleteThings)="onDeleteThings($event)"
+        (deleteThing)="onDeleteThing($event)" (addThing)="onAddThing($event)">
+    </app-things>
+</div>

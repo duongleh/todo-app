@@ -1,0 +1,28 @@
+.user-card.mat-card {
+  max-width: 350px;
+  text-align: center;
+  margin: 2rem auto;
+  padding: 0 0 2rem;
+}
+
+.log-in-form,
+.signup-form {
+  min-height: 355px;
+}
+
+#recaptcha {
+  margin: 0.5rem calc((100% - 300px) / 2);
+}
+
+#submitBtn {
+  margin: 0.85rem;
+}
+
+:host ::ng-deep .mat-progress-spinner {
+  margin-left: 10px;
+  display: inline-block;
+}
+
+#user-icon {
+  font-size: 22px;
+}

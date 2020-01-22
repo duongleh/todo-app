@@ -1,0 +1,100 @@
+<mat-card class="user-card">
+    <mat-tab-group mat-align-tabs="center" [(selectedIndex)]="selectedTab">
+        <mat-tab label="Log In">
+
+            <h2>Log In</h2>
+            <form class="log-in-form" (ngSubmit)="onLogIn()" [formGroup]="formLogIn">
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Username" name="username" formControlName="username"
+                        required minlength="6" />
+                    <span matSuffix> <i class="material-icons" id="user-icon"> account_circle </i> </span>
+                    <mat-error *ngIf="formLogIn.controls['username'].invalid">{{getErrorMessageLogIn('username')}}
+                    </mat-error>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field>
+                    <input [type]="pwHide1 ? 'password' : 'text'" matInput placeholder="Password" name="password"
+                        formControlName="password" autocomplete="password" required minlength="6" />
+                    <button type="button" mat-icon-button matSuffix (click)="pwHide1 = !pwHide1"
+                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="pwHide1">
+                        <mat-icon id="user-icon">{{pwHide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="formLogIn.controls['password'].invalid">{{getErrorMessageLogIn('password')}}
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <div id="recaptcha">
+                    <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha">
+                    </ngx-recaptcha2>
+                </div>
+
+                <button id="submitBtn" mat-flat-button color="primary" [disabled]="formLogIn.valid === isLoading">
+                    Log In <mat-spinner [diameter]="20" *ngIf="isLoading"> </mat-spinner> </button>
+
+            </form>
+
+        </mat-tab>
+
+        <mat-tab label="Sign Up">
+
+            <h2>Sign Up</h2>
+            <form class="signup-form" (ngSubmit)="onSignUp(formDirective)" [formGroup]="formSignUp"
+                #formDirective="ngForm">
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Username" name="username" formControlName="username"
+                        required minlength="6" />
+                    <span matSuffix> <i class="material-icons" id="user-icon"> account_circle </i> </span>
+                    <mat-error *ngIf="formSignUp.controls['username'].invalid">{{getErrorMessageSignUp('username')}}
+                    </mat-error>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field>
+                    <input type="email" matInput placeholder="Email" name="email" formControlName="email" required />
+                    <span matSuffix> <i class="material-icons" id="user-icon"> email </i> </span>
+                    <mat-error *ngIf="formSignUp.controls['email'].invalid">{{getErrorMessageSignUp('email')}}
+                    </mat-error>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field>
+                    <input [type]="pwHide2 ? 'password' : 'text'" matInput placeholder="Password" name="password"
+                        formControlName="password" autocomplete="password" required minlength="6" />
+                    <button type="button" mat-icon-button matSuffix (click)="pwHide2 = !pwHide2"
+                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="pwHide2">
+                        <mat-icon id="user-icon">{{pwHide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="formSignUp.controls['password'].invalid">{{getErrorMessageSignUp('password')}}
+                    </mat-error>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field>
+                    <input [type]="pwHide3 ? 'password' : 'text'" matInput placeholder="Confirm Password"
+                        name="confirmPassword" formControlName="confirmPassword" autocomplete="password" required
+                        minlength="6" />
+                    <button type="button" mat-icon-button matSuffix (click)="pwHide3 = !pwHide3"
+                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="pwHide3">
+                        <mat-icon id="user-icon">{{pwHide3 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="formSignUp.controls['confirmPassword'].invalid">
+                        {{getErrorMessageSignUp('confirmPassword')}} </mat-error>
+                </mat-form-field>
+                <br>
+
+                <!-- <div id="recaptcha">
+            <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha">
+            </ngx-recaptcha2>
+          </div> -->
+
+                <button mat-flat-button color="primary" id="submitBtn" type="submit"
+                    [disabled]="formSignUp.valid === isLoading">
+                    Sign Up<mat-spinner [diameter]="20" *ngIf="isLoading"> </mat-spinner> </button>
+
+            </form>
+
+        </mat-tab>
+
+    </mat-tab-group>
+</mat-card>

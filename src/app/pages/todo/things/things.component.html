@@ -1,0 +1,38 @@
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+            <mat-panel-title> {{title}} </mat-panel-title>
+            <mat-panel-description>
+                <p class="mp-status">{{getCompletedSatus()}}</p>
+
+                <div class="mp-button">
+                    <button mat-flat-button (click)="onAddThing();$event.stopPropagation()">
+                        <i class="material-icons">add</i></button>
+                    <button mat-flat-button (click)="onEditThings();$event.stopPropagation()">
+                        <i class="material-icons">edit</i></button>
+                    <button mat-flat-button (click)="onDeleteThings();$event.stopPropagation()">
+                        <i class="material-icons">delete_outline</i></button>
+                </div>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-divider></mat-divider>
+
+        <mat-list *ngFor="let item of values">
+            <mat-list-item class="todo-things-item" *ngIf="getDisplayStatus(item.isDone)">
+                <mat-checkbox class="todo-things-checkbox" [(ngModel)]="item.isDone"></mat-checkbox>
+
+                <p class="todo-things" [ngClass]=" {'line-through' : item.isDone}">{{item.content}}</p>
+
+                <div class="todothingsBtn">
+                    <button mat-flat-button id="editBtn" (click)="onEditThing(item.content, item.id)">
+                        <i class="material-icons">edit</i></button>
+                    <button mat-flat-button id="delThingBtn" (click)="onDeleteThing(item.id)">
+                        <i class="material-icons">delete_outline</i></button>
+                </div>
+                <mat-divider></mat-divider>
+            </mat-list-item>
+        </mat-list>
+
+    </mat-expansion-panel>
+</mat-accordion>
