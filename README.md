@@ -1,9 +1,13 @@
-﻿## Getting Started
+﻿## Demo site
+
+[Todo App](http://todoapp-env.iiuai2xjpx.ap-southeast-1.elasticbeanstalk.com)
+
+## Getting Started
 
 In the root directory of the project...
 
-1. Install node modules `yarn install` or `npm install`.
-2. Start development server `yarn start` or `npm start`.
+1. Install node modules `npm run init`.
+2. Start development server `npm start`.
 
 ## File Structure
 
