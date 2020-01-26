@@ -1,4 +1,5 @@
-﻿const createError = require("http-errors");
+﻿require("dotenv").config({ path: __dirname + "/.env" });
+const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
@@ -8,7 +9,6 @@ const mongoose = require("mongoose");
 
 const authRouter = require("./routes/auth.route");
 const apiRouter = require("./routes/api.route");
-require("dotenv").config({ path: __dirname + "/.env" });
 const app = express();
 
 app.use(logger("dev"));
@@ -17,13 +17,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, "build")));
 app.use(cors());
-console.log("hi");
-console.log(process.env.MONGODB);
-mongoose.connect(process.env.MONGODB, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false
-});
+
+mongoose
+  .connect(process.env.MONGODB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+  })
+  .catch(e => {
+    console.error(e.message);
+  });
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));

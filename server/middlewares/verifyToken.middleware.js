@@ -1,6 +1,6 @@
+require("dotenv").config({ path: __dirname + "../.env" });
 const jwt = require("jsonwebtoken");
 const HttpStatus = require("http-status-codes");
-require("dotenv").config({ path: __dirname + "../.env" });
 
 module.exports = (req, res, next) => {
   const token = req.header("auth-token");

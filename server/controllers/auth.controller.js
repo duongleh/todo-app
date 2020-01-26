@@ -1,10 +1,10 @@
+require("dotenv").config({ path: __dirname + "../.env" });
 const HttpStatus = require("http-status-codes");
 const rp = require("request-promise");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const user = require("../models/user.model");
 const validate = require("../validations/user.validation");
-require("dotenv").config({ path: __dirname + "../.env" });
 
 module.exports.get = async (req, res) => {
   try {
