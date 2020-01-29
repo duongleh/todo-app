@@ -1,8 +1,4 @@
-﻿## Demo site
-
-[Todo App](http://todoapp-env.iiuai2xjpx.ap-southeast-1.elasticbeanstalk.com)
-
-## Getting Started
+﻿## Getting Started
 
 In the root directory of the project...
 
