@@ -30,7 +30,7 @@ export function checkPasswords(password: string, confirmPassword: string) {
   providers: [UserAuthService]
 })
 export class UserComponent implements OnInit {
-  @ViewChild('captchaElem', { static: false }) captchaElem: ReCaptcha2Component;
+  @ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
   public formLogIn: FormGroup;
   public formSignUp: FormGroup;
 
