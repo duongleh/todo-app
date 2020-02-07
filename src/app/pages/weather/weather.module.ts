@@ -7,14 +7,12 @@ import { WeatherComponent } from './weather.component';
 import { DataComponent } from './data/data.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {
-  MatCardModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatProgressSpinnerModule,
-  MatButtonModule,
-  MatDialogModule
-} from "@angular/material";
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { AgmCoreModule } from '@agm/core';
 
 @NgModule({

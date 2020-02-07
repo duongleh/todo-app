@@ -5,15 +5,13 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import {
-  MatCardModule,
-  MatTabsModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatIconModule,
-  MatProgressSpinnerModule,
-  MatButtonModule
-} from "@angular/material";
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatTabsModule } from "@angular/material/tabs";
 
 import { NgxCaptchaModule } from 'ngx-captcha';
 

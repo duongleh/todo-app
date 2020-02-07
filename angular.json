@@ -143,5 +143,8 @@
       }
     }
   },
-  "defaultProject": "materialui-multi-page"
+  "defaultProject": "materialui-multi-page",
+  "cli": {
+    "analytics": "ce3bec20-75f5-40e8-94a2-77da81e479a5"
+  }
 }
