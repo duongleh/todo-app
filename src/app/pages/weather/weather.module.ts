@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Constants } from '../../shared/constant';
 
 import { WeatherRoutingModule } from './weather-routing.module';
 import { WeatherComponent } from './weather.component';
@@ -13,7 +12,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-import { AgmCoreModule } from '@agm/core';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [WeatherComponent, DataComponent],
@@ -28,9 +27,7 @@ import { AgmCoreModule } from '@agm/core';
     MatButtonModule,
     MatDialogModule,
     MatInputModule,
-    AgmCoreModule.forRoot({
-      apiKey: Constants.apiKey
-    })
+    GoogleMapsModule
   ],
   entryComponents: [
     DataComponent
