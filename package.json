@@ -25,7 +25,7 @@
     "express": "^4.17.1",
     "fs-extra": "8.1.0",
     "morgan": "^1.9.1",
-    "ngx-captcha": "^7.0.0",
+    "ngx-captcha": "^8.0.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "typescript": "3.7.5",
