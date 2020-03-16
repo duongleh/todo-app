@@ -1,6 +1,6 @@
 require("dotenv").config({ path: __dirname + "../.env" });
 const HttpStatus = require("http-status-codes");
-const rp = require("request-promise");
+const axios = require("axios");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const user = require("../models/user.model");
@@ -44,17 +44,17 @@ module.exports.login = async (req, res) => {
   // Check if recaptcha token is valid
   const reCaptchaOptions = {
     method: "POST",
-    uri: "https://www.google.com/recaptcha/api/siteverify",
-    qs: {
+    url: "https://www.google.com/recaptcha/api/siteverify",
+    params: {
       secret: process.env.RECAPTCHA_SECRETKEY,
       response: req.body.recaptcha
-    },
-    json: true
+    }
   };
 
   try {
-    const resp = await rp(reCaptchaOptions);
-    if (resp.success) {
+    const result = await axios(reCaptchaOptions);
+    console.log(result.data);
+    if (result.data.success) {
       // Create and assign token
       const token = jwt.sign({ _id: userExist._id }, process.env.JWT_SECRETKEY);
       return res
