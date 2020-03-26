@@ -17,8 +17,8 @@
     "http-errors": "~1.7.3",
     "http-status-codes": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.4",
-    "morgan": "~1.9.1"
+    "mongoose": "^5.9.6",
+    "morgan": "~1.10.0"
   },
   "engines": {
     "node": ">=10.14.1"
